@@ -111,6 +111,18 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr6) {
+  var uniqueArray = [];
+  for (i = 0; i < arr6.length; i++) {
+    if (uniqueArray.indexOf(arr6[i]) === -1) {
+      uniqueArray.push(arr6[i]);
+    }
+  }
+  return uniqueArray;
+}
+
+getUnique(wordsUnique);
+
 // Iteration #6: Find elements
 const wordsFind = [
   'machine',
@@ -122,6 +134,21 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist(arr7, word) {
+  if (arr7.length === 0) {
+    return false;
+    let finalArr = [];
+  } else {
+    for (let w = 0; w < arr7.length; w++) {
+      if (arr7.includes(word) === false) {
+        return false;
+      } else if (arr7.includes(word)) {
+        return true;
+      }
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -137,6 +164,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr8, word2) {
+  let numberOfTimes = 0;
+  for (let z = 0; z < arr8.length; z++) {
+    if (arr8[z].includes(word2)) {
+      numberOfTimes += 1;
+    }
+  }
+  return numberOfTimes;
+}
 
 // Iteration #8: Bonus
 
@@ -162,3 +199,21 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(arr9) {
+  let biggestProductOf = 0;
+  let productOfEach4 = 0;
+  for (i = 0; i < arr9.length; i++) {
+    productOfEach4 = arr9[i] * arr9[i + 1] * arr9[i + 2] * arr9[i + 3];
+    if (productOfEach4 > biggestProductOf) {
+      biggestProductOf = productOfEach4;
+    }
+    productOfEach4Horizontal = arr9[i] * arr9[i + 5] * arr9[i + 10] * arr9[i + 15];
+    if (productOfEach4Horizontal > biggestProductOf) {
+      biggestProductOf = productOfEach4Horizontal;
+    }
+  }
+  return biggestProductOf;
+}
+
+console.log(greatestProduct(matrix));
