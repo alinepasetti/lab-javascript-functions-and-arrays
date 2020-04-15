@@ -77,7 +77,7 @@ const wordsArr = [
   'smart',
   'chaos',
   'fuel',
-  'palace'
+  'palace',
 ];
 
 function averageWordLength(arr5) {
@@ -108,7 +108,7 @@ const wordsUnique = [
   'poison',
   'communion',
   'simple',
-  'bring'
+  'bring',
 ];
 
 function uniquifyArray(arr6) {
@@ -121,7 +121,7 @@ function uniquifyArray(arr6) {
   return uniqueArray;
 }
 
-getUnique(wordsUnique);
+uniquifyArray(wordsUnique);
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -132,7 +132,7 @@ const wordsFind = [
   'matter',
   'eating',
   'truth',
-  'disobedience'
+  'disobedience',
 ];
 
 function doesWordExist(arr7, word) {
@@ -162,7 +162,7 @@ const wordsCount = [
   'matter',
   'truth',
   'disobedience',
-  'matter'
+  'matter',
 ];
 
 function howManyTimes(arr8, word2) {
@@ -197,23 +197,29 @@ const matrix = [
   [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
-  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
+  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48],
 ];
 
 function greatestProduct(arr9) {
   let biggestProductOf = 0;
   let productOfEach4 = 0;
-  for (i = 0; i < arr9.length; i++) {
-    productOfEach4 = arr9[i] * arr9[i + 1] * arr9[i + 2] * arr9[i + 3];
-    if (productOfEach4 > biggestProductOf) {
-      biggestProductOf = productOfEach4;
-    }
-    productOfEach4Horizontal = arr9[i] * arr9[i + 5] * arr9[i + 10] * arr9[i + 15];
-    if (productOfEach4Horizontal > biggestProductOf) {
-      biggestProductOf = productOfEach4Horizontal;
+  for (n = 0; n < arr9.length; n++) {
+    for (let i = 0; i < n - 1; i++) {
+      productOfEach4 = arr9[n][i] * arr9[n][i + 1] * arr9[n][i + 2] * arr9[n][i + 3];
+      if (productOfEach4 > biggestProductOf) {
+        biggestProductOf = productOfEach4;
+      }
+
+      if (n < arr9.length - 3) {
+        productOfEach4Horizontal = arr9[n][i] * arr9[n + 1][i] * arr9[n + 2][i] * arr9[n + 3][i];
+        if (productOfEach4Horizontal > biggestProductOf) {
+          console.log(productOfEach4Horizontal);
+          biggestProductOf = productOfEach4Horizontal;
+        }
+      }
     }
   }
   return biggestProductOf;
 }
 
-console.log(greatestProduct(matrix));
+greatestProduct(matrix);
